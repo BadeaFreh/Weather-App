@@ -19,10 +19,6 @@ class Weather {
         })
     }
 
-    addWeather (weather) {
-        this._weathers.push(weather)
-    }
-
     requestWeathers () {
         return $.get(`/weathers`, function(weathers) {
             this.weathers = weathers

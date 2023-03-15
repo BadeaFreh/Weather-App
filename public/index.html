@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <form>
+        <label for="countryInput">Enter Your Country Name</label><br><br>
+        <input type="text" id="countryInput" name="country"><br><br>
+        <button class="btn" type="submit">Go</button>
+    </form>
+    <div id="weathers"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="renderer.js"></script>
+    <script src="model.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -5,6 +5,7 @@ const app = express()
 const path = require('path')
 require('dotenv').config()
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'node_modules')))
 const api = require('./routes/weather-api')
 app.use('/', api)
 

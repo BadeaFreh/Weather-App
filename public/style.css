@@ -46,6 +46,10 @@ form button:active {
     transform: scale(0.98);
 }
 
+.remove-btn {
+    cursor: pointer;
+}
+
 .weather {
     display: flex;
     align-items: center;
@@ -63,4 +67,27 @@ form button:active {
 
 .weather .temp {
     color: #F0EB8D;
+}
+
+/* Small devices (landscape phones) */
+@media (max-width: 200px) {
+    .weather {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (max-width:470px) {
+    .weather {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width:992px) {
+
 }

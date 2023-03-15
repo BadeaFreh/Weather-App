@@ -5,22 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
+
 <body>
     <form>
         <label for="countryInput">Enter Your Country Name</label><br><br>
         <input type="text" id="countryInput" name="country"><br><br>
-        <button class="btn" type="submit">Go</button>
+        <button class="search-btn" type="submit">Go</button>
     </form>
     <div id="weathers"></div>
+
+    <script id="weathers-template" type="text/x-handlebars-template">
+        {{#each weathers}}
+            <div class="weather">
+                <span class="city-name">{{weathers.name}}</span>
+                <span class="temp">{$}{weathers.temperature}}</span>
+                {{weathers.condition}}
+                <img src="{{weather.conditionPic}}">
+                <button class="btn btn-danger remove-btn" type="button">Remove</button>
+            </div>
+          {{/each}}
+    </script>
+    <script src="./handlebars/dist/handlebars.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="renderer.js"></script>
     <script src="model.js"></script>
-    <script src="main.js"></script>
+    <script src="controller.js"></script>
 </body>
 
 </html>

@@ -25,16 +25,18 @@
     <script id="weathers-template" type="text/x-handlebars-template">
         {{#each weathers}}
             <div class="weather">
-                <span class="city-name">{{weathers.name}}</span>
-                <span class="temp">{$}{weathers.temperature}}</span>
-                {{weathers.condition}}
-                <img src="{{weather.conditionPic}}">
-                <button class="btn btn-danger remove-btn" type="button">Remove</button>
+                <span class="city-name">{{name}}</span>
+                <span class="temp">{{temperature}}</span>
+                {{condition}}
+                <img src="{{ conditionPic }}">
+                <button class="btn remove-btn" type="button">
+                    <img src="icons/trash.svg">
+                </button>
             </div>
-          {{/each}}
+        {{/each}}
     </script>
-    <script src="./handlebars/dist/handlebars.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="renderer.js"></script>
     <script src="model.js"></script>
     <script src="controller.js"></script>

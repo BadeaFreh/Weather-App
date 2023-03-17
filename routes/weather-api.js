@@ -11,8 +11,6 @@ router.use(bodyParser.urlencoded({extended: true}))
 const Weather = require('../models/Weather')
 
 router.get('/', (req, res) => {
-    const country = req.query.country
-    console.log(country);
     res.sendFile("index.html")
 })
 
@@ -24,10 +22,15 @@ router.get('/weathers', async (req, res) => {
 router.get('/:city', async (req, res) => {
     const city = req.params.city
     const FULL_API_URL = `${WEATHER_URL}?q=${city}&appid=${APP_KEY}&units=${UNIT}`
+    if (city) {
         axios.get(FULL_API_URL)
             .then(weathersResponse => {
                 res.send(weathersResponse)
             })
+    }
+    else {
+        res.send("what?")
+    }
 })
 
 router.post('/:city', (req, res) => {
@@ -55,7 +58,8 @@ router.post('/:city', (req, res) => {
 router.delete('/:cityName',  (req, res) => {
     const cityName = req.params.cityName
     Weather.deleteMany({name: cityName}, err => {
-        res.send("Deleted all documents about " + cityName)
+        // res.send("Deleted all documents about " + cityName)
+        res.send(cityName)
     })
 })
 

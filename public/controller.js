@@ -19,9 +19,8 @@ $(".search-btn").on("click", async function () {
     renderer.renderWeathers(model.getWeathers())
 })
 
-$(".remove-btn").on("click", async function() {
-    console.log("Clicked")
+$("body").on("click", ".remove-btn", async function() {
     const cityName = $(this).closest(".weather").find(".city-name").text()
     await model.deleteWeather(cityName)
-    renderer.renderWeathers()
+    renderer.renderWeathers(model.getWeathers())
 })

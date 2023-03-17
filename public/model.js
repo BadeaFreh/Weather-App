@@ -20,9 +20,9 @@ class Weather {
     }
 
     requestWeathers () {
-        return $.get(`/weathers`, function(weathers) {
-            this.weathers = weathers
-            return weathers
+        return $.get(`/weathers`, (weathers) => {
+            this.setWeathers(weathers)
+            return this._weathers
         })
     }
 
@@ -30,9 +30,8 @@ class Weather {
         return $.ajax({
             url: `/${cityName}`,
             type: 'DELETE',
-            success: (result) => {
-                console.log(`${result.name} deleted from db`);
-                const index = this._weathers.findIndex(weather => weather.name === result.name)
+            success: (cityName) => {
+                const index = this._weathers.findIndex(weather => weather.name === cityName)
                 this._weathers.splice(index, 1)
             }
         })
